@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1차시 : 기본용어, 변수 및 연산자</title>
+</head>
+<body>
+    <h1>연산자</h1>
+    <h2>산술 연산자</h2>
+    <pre>
+        +, -, *, / 더하기, 빼기, 곱하기, 나누기
+        + 문자 이후에 문자 또는 숫자는 이어서 붙여준다.
+        % 나누기 연산 후 나머지 값
+        ++ 1씩 증가
+        -- 1씩 감소
+        +=, -+, *=, /=, %= 연산과 동시에 값을 할당.
+    </pre>
+    <script>
+        const num1 = 100;
+        const num2 = 30;
+        console.log(num1+num2);
+        console.log(num1-num2);
+        console.log(num1*num2);
+        console.log(num1/num2);
+        console.log(num1%num2);//100을 30으로 나눈 나머지 숫자
+    </script>
+    <h3>문자열 더하기</h3>
+    <script>
+        console.log('문자열 더하기 ==========');
+
+        console.log('자바스크립트' + ' 기초');//공백은 하나까지만 표현됨.
+        console.log('자바스크립트' + 10);
+        console.log(10 + '자바스크립트');
+        console.log('10' + 20);
+        console.log(20 + '10');
+
+        //주의할 점.
+        //더하기는 문자가 있으면, 둘다 문자 취급함.
+        //곱하기는 문자가 있어도 숫자로 읽는다.
+        //더하기를 제외하고는 모두. 문자로 써도 숫자로 인식한다.
+        console.log('10' * 20);
+        console.log(20 * '10');
+        console.log(20 - '10');
+        console.log(20 / '10');
+    </script>
+
+
+
+    <h3>증감 연산자</h3>
+    <script>
+        console.log('증감 연산자 ==========');
+        let i = 1;
+        //console.log(i++); //i는 아직 1임. 다음에 호출할 때 i를 더한값 반환. // 나중에 더하기.
+        //console.log(i); // = 2
+
+        console.log(++i); // = 2 // 먼저 더하고 호출.
+        console.log(i);
+
+        let x = 1;
+        console.log(x--); //1
+        console.log(x); //0
+    </script>
+    <h3>복합대입 연산자</h3>
+    <script>
+        console.log('복합대입 연산자 ==========');
+
+        let a = 10;
+        //a = a + 10;
+        a += 10; // a = a + 10; 단순화한 식.
+        console.log(a); // 20
+        //a = a*2;
+        a*=2; // 결과 = 40
+        // a= a%3;
+        a %= 3;
+        console.log(a); // 40을 3으로 나누고 나머지값.
+    </script>
+    <h3 style="color: red;">강의 1차시. 연산자. 복습</h3>
+    <p>1. 버튼 클릭시, 경고창 나오게 하기</p>
+    <button type="button" onclick="alert('준비 중입니다.')">버튼1</button>
+    <p>'공부하고 있지요.'라는 문자와 오늘날짜 불러오기.</p>
+    <script>
+        let year = 2025;
+        let month = 1;
+        let day = 31;
+        console.log(year, month, day); // 2025, 1, 31
+
+        let total = year + month + day;
+        console.log(total); // 2057
+
+        year *= 2;
+        console.log(year); // 4050
+        year /= 2;
+        console.log(year); // 2025
+
+        console.log(total+year); // 2057 + 2025 = 4082
+
+        //'공부하고 있지요.'라는 문자와 오늘날짜 불러오기.
+        let text = '공부하고 있지요.';
+        console.log(text);
+        document.write(text+year+month+day);
+
+        console.log('공부하고 있지요.'+ '2025.01.31');
+        console.log ('공부하고 있지요 '+250131);
+    </script>
+</body>
+</html>
