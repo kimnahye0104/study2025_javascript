@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트-공부-001</title>
+    <script src="/js/study001.js"></script>
+</head>
+<body>
+    <!-- 
+        자바스크립트 1강 : 기본용어 알기.
+
+        1. 식별자는 영어로 작성한다.
+        - 숫자가 앞에 올 수 없다.
+        - alert('hello world') 등등 괄호가 있는 식별자가 있음.
+        - 주석 //, /**/ 가능
+
+        2. 스크립트 실행
+        - html 직접 작성 (인라인방법) = 웹표준을 어기는 것임.
+        - script태그 안에 코드 작성
+        - 별도의 파일을 로드하기.
+
+        3. 브라우저 전체를 지원하고 있음. ES6 버전.
+    -->
+    <!-- 
+        표현식 문장 expression statement
+        표현식 값을 만들어내는 것
+        하나 이상의 표현식이 모인 것 = 문장
+    -->
+    <h1>식별자(=그릇)</h1>
+    <pre>
+        값을 저장, 이후 재활용.
+        문자, 배열, 함수, 객체...
+        (주의사항)
+        1. 식별자는 숫자로 시작할 수 없다.
+        2. 사용가능한 특수문자는 $, _만 쓸수 있다.
+        3. break, const, var 등등 자바스크립트에서 자체로 쓰는 예약어는 사용불가.
+    </pre>
+    <h2>자바스크립트 실행</h2>
+    <h3>태그에 script 작성</h3>
+    <!-- <button onclick="alert('버튼에 직접 스크립트 썼습니다')">클릭</button> -->
+    <script>
+        //alert('반갑습니다.')
+    </script>
+    <script>
+        /*
+        346, 1+44, 'test' <= 표현식
+        345; 10+45; "test";
+        var test = "test";
+        alert('hello world - 2025.01.31 공부');
+        */
+       var beta = 'beta';
+       // var = 변수 선언
+       // beta = 식별자
+
+       //단독사용 !!!
+       //alert('단독사용 가능 식별자');
+       //alert = 식별자 뒤 괄호. 단독 사용.
+       //output;
+
+       //다른식별자와 사용 !!!
+       //Array.prototype
+       //Math.round(대상) : 반올림 함수 쓸 때 Math.ceil(0.5);
+    </script>
+    <!-- 
+        자바스크립트 1강 - 2  : 변수 선언하기.
+     -->
+    <!-- 
+        var : 선언하고 값 초기화
+        let : 블록 범위 변수 선언
+        const : 상시로 선언. 불변의 변수.
+    -->
+    <!-- 
+        객체 : 변수와 메서드 한곳에 모아주는 꾸러미.
+        배열 : 여러개 비슷한 요소 집합.
+        함수 : 실행할 구문을 미리 정의해놓고 호출하여 사용.
+    -->
+    <h3>변수</h3>
+    <pre>
+        <!-- 
+        선언하면서 값을 초기화(할당)
+        , 어디에서든 사용가능,
+        함수내에서 지역변수,
+        호이스팅(끌어올려짐)
+        -->
+        var 변수명 = 값;
+        <!-- 블록범위 지역변수, 함수내에서 사용가능, {블록} 안에서도 사용 가능. -->
+        let 변수명 = 값;
+        <!-- 변경불가 -->
+        const 변수명 = 값;
+    </pre>
+    <script>
+        var basicLang = "자바스크립트";
+        document.write(basicLang);
+    </script>
+    <h3>변수타입</h3>
+    <pre>
+        기본타입 : 숫자, 문자, 불리언, null, undefined
+        => 원시데이터, 단순화 할 수 없는 값
+
+        참조타입 : 복합적인 값, 배열, 함수, 다양한 정규표현식 등, 객체...
+    </pre>
+    <script>
+        var mynum = 60;
+        var str = 'javascript';
+        var bool = true;
+        var n = null; //빈값
+        var u; //undefined, 변수명은 있는데 값 지정 안됨.
+
+        //자료형 typeof(대상);
+        //typeof는 생성한 변수의 속성을 알려준다.
+
+        
+    </script>
+</body>
+</html>
