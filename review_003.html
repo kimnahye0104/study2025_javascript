@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- study003 : 3차시 : 배열 -->
+     <h1>복습 - 3차시 배열</h1>
+     <script>
+        //배열
+        let yoil = []//빈 배열
+        yoil = ['월','화','수','목','금','토','일'];
+        console.log(yoil)
+        console.log(`오늘은 ${yoil[0]}요일입니다.`);
+        document.write('오늘은 ' + yoil[4] + '요일입니다.');
+        document.write('<hr>');
+        //배열 작성법 2.
+        let yoil_v2 = new Array(2); //빈 배열*2
+        console.log(yoil_v2)
+        console.log(yoil_v2[1])//undefined
+        yoil_v2[1] = '월';
+        console.log(yoil_v2)//아직 [1] = 월 이라는 값만 입력됨.
+        yoil_v2[0] = '일';
+        console.log(yoil_v2[0]+'요일');
+        console.log(yoil_v2);
+        document.write(yoil_v2[1], yoil_v2[0]);
+        console.log("===============================")
+        //배열 기초 문제
+        //1. 원하는 색상을 6개 배열로 각각 저장하고 그 중 좋아하는 색상 2개를 골라서 콘솔에 출력하세요.
+        //콘솔결과 예시) 좋아하는 색상은 O, O 입니다.
+        let colorArr = [];
+        console.log(colorArr);
+        colorArr = ['빨', '주', '노', '초', '파', '남', '보'];
+        console.log(colorArr);
+        console.log(`좋아하는 색상은 ${colorArr[2]} 색입니다.`);
+        document.write('<hr>');
+        document.write(`좋아하는 색은 ${colorArr[1]}입니다.`);
+       //2. 이번주 요일과 일자를 배열로 생성하고, 요일과 일자를 출력하세요.
+       //콘솔결과 예시) 일주일은 0,0,0,0,0,0,0 의 요일로 구성됩니다.
+       let weekArr = ['월', '화', '수', '목', '금', '토', '일'];
+       let dayArr = [3,5,6,4,7,8,9];
+       console.log(weekArr);
+       console.log(dayArr);
+       console.log(`오늘은 ${weekArr[4]}요일이고, 2025년 2월 ${dayArr[4]}일입니다`);
+       document.write('<hr>');
+       document.write(`오늘은 ${weekArr[4]}요일이고, 2025년 2월 ${dayArr[4]}일입니다`);
+       //push, pop, unshift, shift를 이용해서 월요일 삭제 후 화요일2 추가, 일요일 삭제하고 토요일2 추가
+       //콘솔결과 예시) 화요일2,화,수,목,금,토,토요일2
+       weekArr.shift();//월 삭제
+       weekArr.unshift('화요일2');
+       weekArr.pop();//일 삭제
+       weekArr.push('토요일2');
+       console.log(weekArr);
+     </script>
+     <h2>cgv 좌석표 배열 활용하기</h2>
+     <script>
+        let cgv = new Array(8);
+        console.log(cgv);
+        console.log(cgv.length);
+        console.log(cgv.typeof);//undefinded;
+        cgv[0] = 'a';
+        console.log(cgv[0]);
+        console.log(cgv);
+     </script>
+     <h2>megabox 좌석표 배열 활용하기</h2>
+     <script>
+        console.log('====================')
+        let megabox = []
+        console.log(megabox) 
+        console.log(megabox.length)
+        megabox.push('A2')
+        // A2 다음으로 순서대로 B1이 배열에 저장.
+        megabox.push('B1') 
+        console.log(megabox);
+        // 가장 첫번째 배열에 저장됨.
+        megabox.unshift('A1');
+        console.log(megabox);// A1, A2, B1
+        // 맨 뒤 배열이 삭제 됨.
+        megabox.pop()
+        console.log(megabox); //A1, A2
+     </script>
+     <h2>롯데시네마 좌석과 구매 배열 활용하기</h2>
+     <script>
+        console.log("===============================(심화 : 롯데시네마 좌석과 가격 배열)")
+        let lottecinema = [];
+        let price = 10000;
+        lottecinema.push('A1','A2','B1','B2')
+        console.log(lottecinema); //A1, A2, B1, B2
+        console.log("===============================(심화 : 롯데시네마2)")
+        let total_2 = lottecinema.length*price;
+        console.log(total_2);//40000
+        lottecinema.push('C1','C2')
+        ticket_price ()
+        //가격 책정 함수
+        function ticket_price (){
+            total = lottecinema.length*price;
+            console.log(`좌석은 총 ${lottecinema.length}개입니다.`) //6개
+            console.log(`예매하신 좌석은 총 ${lottecinema.length}좌석이며, ${price}원(성인) 기준, 총 결제 금액은 ${total_2}원입니다.`)
+        }
+        console.log(lottecinema); //A1, A2, B1, B2, C1, C2
+     </script>
+     <h2>가계부 만들기</h2>
+     <button type="button" onClick="price_all()">총 지출액 보기</button>
+     <br>
+    <button type="button" onClick="phone_price()">이번 달 핸드폰 할부비용 보기</button>
+    <br>
+    <button type="button" onClick="add_all()">핸드폰 할부 포함 + 총 지출액보기</button>
+     <script>
+        let drink = 1
+        let food = 2
+        let fee = 3
+        let phone = 100
+        let total = 0
+        let phone_discount = 0
+        //총 지출액은 OOO원 입니다.
+        function price_all(){
+            let result = drink + food + fee;
+            console.log(`총 지출액은 ${result}원 입니다.`); //6
+        }
+        //핸드폰 6개월 할부금액은 원 입니다.
+        function phone_price(){
+            let result = phone / 6;
+            console.log(`핸드폰 6개월 할부금액은 ${result}원 입니다.`)
+        }
+        //할부 + 총 지출액
+        function add_all(){
+            let result = drink + food + fee;
+            let plan = phone / 6;
+            let total = result + plan;
+            alert(`할부 포함 총 지출액은 ${total}원 입니다.`)
+        }
+     </script>
+     <hr>
+     <h2 style="color:red;">추가 복습</h2>
+     <form action="#" id="order">
+        <input type="text" id="text" placeholder="요청사항을 입력하세요">
+        <input type="number" name="num" id="num">
+        <button type="button" id="btn" onClick="btn_func4()">주문</button>
+    </form>
+     <script>
+        //dom (브라우저에 있는 input, button 식별자 만들기)
+        const order = document.querySelector('#order')
+        const input_text = document.querySelector('#text')
+        const input_num = document.querySelector('#num')
+        const btn = document.querySelector('#btn')
+        console.log(order, input_text, input_num, btn)
+
+        function btn_func4(){
+            //사용자 요청사항과 주문수량을 확인하고
+            //주문 버튼을 클릭하면 다음과 같이 경고창 출력하기
+            //"요청사항은 oo, 주문수량은 0개, 총 결제금액은 00원 입니다."
+            //제품 1개당 1000원 기준
+            let user_answer = input_text.value
+            let total = Number(input_num.value)
+            let price = 1000 * total
+            alert(`요청사항은 ${user_answer}, 주문수량은 ${total}개, 총 결제금액은 ${price}원 입니다.`)
+        }
+     </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3차시 : 배열</title>
+</head>
+<body>
+    <!-- 
+        1. 배열
+        1-1. 배열 생성
+        var 배열명 = new Array();
+        var 배열명 = [];
+
+        1-2. 배열의 값 확인
+        배열명[인덱스번호]
+
+        1-3. 원소 개수와 추출
+        1) length : 원소의 개수를 알려줌
+        2) join : 배열의 원소를 연결, 하나의 값으로 출력
+    -->
+        <h1>3차시 : 배열</h1>
+        <hr>
+        <h2>Array 배열</h2>
+        <pre>
+            배열은 비슷한 성격의 여러 데이터들을 한 저장소에 저장해놓고 필요할 때 데이터를 꺼내서 사용할때 생성합니다.
+
+            새배열 만들기
+            var 이름 = new Array();
+            var 이름 = [];
+
+            배열명[0] = 값;
+
+            값을 확인하는 방법*
+            배열명[1]
+
+            배열 개수 확인하는법*
+            배열명.length
+        </pre>
+        <h3>배열생성</h3>
+        <script>
+            //새배열 만들고 값 입력하기.
+            let frontLang = [];
+            frontLang[0] = 'html';
+            frontLang[1] = 'css';
+            frontLang[2] = 'javascript';
+            console.log(frontLang[1]);
+        </script>
+        <h3>length</h3>
+        <script>
+            let backLang = ['php', 'asp', 'jsp'];
+            console.log(backLang[2]);
+            document.write('배열의 개수 =' + backLang.length);
+        </script>
+        <hr>
+        <h3>join</h3>
+        <pre>
+            배열의 값을 하나의 문자열로 합쳐준다.
+
+            배열명.join('구분자');
+        </pre>
+        <script>
+            var front2 = frontLang.join(' & ');
+            document.write(front2);
+            console.log(typeof(front2));
+        </script>
+        <!-- 
+            2. 배열의 정렬
+            reverse : 원소 순서 반대로 정렬
+            sort : 오름차순,내림차순,알파벳순,가나다순
+            push : 기존배열에 마지막에 값 추가.
+            pop : 기존배열의 마지막 원소 제거
+            unshift : 기존 배열 원소 가장 앞에 새로운 값 추가.
+            shift : 배열의 첫 원소 제거.
+
+            slice : 기존배열에서 원소 추출 (복사)
+            splice : 기존배열에서 원소 오려 추출 (오려내기)
+
+            concat : 배열을 병합. a에 b더하기..
+            filter : 주어진 함수 조건을 통과하는 원소 모아 배열.
+        -->
+        <hr>
+        <h3>reverse</h3>
+        <pre>
+            원소의 정렬을 역순으로 변경(원본 수정)
+            배열명.reverse();
+        </pre>
+        <script>
+            document.write(backLang);//원본. 순서 바꾸지 않았을때..
+            //backLang.reverse();
+            document.write('<hr>');
+            var reverseBack = backLang.reverse();
+            document.write(backLang);// 역순.
+            document.write('<hr>');
+            document.write(reverseBack);//역순으로 바꾸는 변수 호출.
+        </script>
+        <hr>
+        <h3>sort</h3>
+        <pre>
+            원소들을 오름차순, 내림차순 정렬(원본을 수정하고 있음)
+        </pre>
+        <script>
+            var fruits = ['apple', 'orange', 'mango'];
+            var numbers = [10,50,20,40];
+            
+            fruits.sort();//알파벳순 정렬.
+            numbers.sort();
+            console.log(fruits);
+            console.log(numbers);
+        </script>
+        <hr>
+        <h3>push</h3>
+        <script>
+            var fruits = ['apple', 'orange', 'mango'];
+            fruits.push('grape');
+            document.write(fruits);
+        </script>
+        <h3>push</h3>
+        <script>
+            fruits.pop();
+            document.write(fruits);
+        </script>
+        <h3>unshift</h3>
+        <script>
+            fruits.unshift('grape');
+            document.write(fruits);
+        </script>
+        <h3>shift</h3>
+        <script>
+            fruits.shift('grape');
+            document.write(fruits);
+        </script>
+        <hr>
+        <h3>slice</h3>
+        <pre>slice는 기존에서 복사.</pre>
+        <script>
+            var orgArr2 = [0,1,2,3,4,5];
+            var newArr2 = orgArr2.slice(0,3);
+            document.write('slice(0,3)했을때 = ' + newArr2);
+            console.log(orgArr2);
+        </script>
+         <h3>splice</h3>
+         <pre>오려내기..</pre>
+         <script>
+            var orgArr3 = [0,1,2,3,4,5];
+            var newArr3 = orgArr3.splice(0,3);
+            document.write('slice(0,3)했을때 = ' + newArr3);
+            console.log(orgArr3);
+         </script>
+         <hr>
+         <h3>concat</h3>
+         <pre>원본.concat(새로운배열)</pre>
+         <script>
+            var arr1 = ['html', 'css', 'javascript'];
+            var arr2 = ['php', 'jsp', 'asp'];
+            var fullstack = arr1.concat(arr2);
+            document.write(fullstack);
+         </script>
+         <hr>
+         <h3 style="color:red;">filter</h3>
+         <pre>조건에 부합하는 원소들만 추출하여, 새로운 배열을 생성함.</pre>
+         <script>
+            var nums = [10,7,25,22,30];
+            var mynums = nums.filter(function(item){
+                return item % 5 == 0;// item을 5로 나눈 나머지를 출력해줘.
+            });
+            document.write(mynums);
+         </script>
+</body>
+</html>
