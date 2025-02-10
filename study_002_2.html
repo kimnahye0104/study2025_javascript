@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차시 : 함수와 객체</title>
+</head>
+<body>
+    <!-- 
+        2. 객체
+        2-1. 객체의 구조
+        var 객체명 = new Object()
+        var 객체명 = {};
+    -->
+    <h1>2차시 : 함수와 객체</h1>
+    <hr>
+    <h2>객체의 구조</h2>
+    <h3>object</h3>
+    <pre>
+        객체(object) = 변수(property) + 함수(method)
+    </pre>
+    <script>
+        //let 이름 = new Oject();
+        //var 이름 = {};
+
+        /*
+        var s1 = {};
+        //객체명.변수명 = 값;
+        s1.kor = 100;
+        s1.eng = 90;
+        s1.math = 80;
+        console.log(s1.math);
+        */
+       var s1 ={
+            kor:100,
+            eng:90,
+            math:80,
+            total:function(){
+                var sum = this.kor + this.eng + this.math;
+                return sum;
+            }
+       }
+       console.log(s1.total());
+    </script>
+</body>
+</html>

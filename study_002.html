@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차시 : 함수</title>
+</head>
+<body>
+    <!-- 
+        1. 함수의 구조
+        input > function > output
+
+        function add(a, b) {
+            var sum = a : b;
+            return sum;
+        }
+        var result = add(10, 30);
+
+        매개변수(들어오는 값)는 a,b
+        인자(전달하는 값)은 10,30
+
+        ----------------------------
+
+        1-1 지역변수
+        : 함수 내에서 생성된 변수는 다른 곳에서 사용불가.
+        var sum = a + b;
+
+        1-2 전역변수
+        : 함수 외부의 전역에서 선언된 변수
+        var sum;
+        function add(a,b) {
+            sum = a + b;
+        }
+        add(10,30);
+        document.write(sum);
+
+        1-3 이름 없는 함수(익명 함수)
+        var sum = function(x,y) {
+            var z = x+y;
+            return z;
+        }
+        document.write(sum(10,20));
+
+        1-4 즉시 실행함수
+        (function() {
+        
+        }());
+    -->
+    <h1>2차시 : 함수</h1>
+    <hr>
+    <h2>함수의 구조</h2>
+    <hr>
+    <h3>일반 함수</h3>
+    <script>
+        var sum;
+        var result = add(18,11);//이전에도 함수 호출할 수도 있음.
+        //일반함수는 어디에 있는 호출할 수 있다.
+
+        function add(a,b) {
+            let sum = a + b;//지역변수
+            return sum; //전역변수가 있을 경우 리턴 안해도 됨.
+        }
+        //일반함수 호출자리!!
+        document.write(result);
+        //document.write(sum); // 지역변수라서 호출이 되지 않음.
+        //document.write(add(10,30)); //함수 안에서 선언된 변수 sum에 값을 대입했을때 호출법
+    </script>
+    <hr>
+    <h3>익명함수</h3>
+    <script>
+        //document.write(addNum(10,20)); //익명함수는 순서대로 읽고 출력하므로, 뒤에 있어야함.
+        var addNum = function(x,y){
+            var z = x+y;
+            return z;
+        }
+        document.write(addNum(10,20));
+    </script>
+    <h3>즉시 실행 함수</h3>
+    <script>
+        /*
+        (function(){
+            //즉시 실행
+        }());
+        (function(){
+            //즉시 실행
+        })();
+        */
+       var result = (function(a,b){
+        return a+b;
+       })(10,20);
+       document.write(result);
+    </script>
+</body>
+</html>
