@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4차시 : 조건문</title>
+</head>
+<body>
+    <h1>4차시 : 조건문</h1>
+    <hr>
+    <!-- 
+        1. 기본 구조
+
+        if(조건) {
+            참일 때 할 일;
+        } else {
+            거짓일때
+        }
+
+        2. 비교연산자
+        <, >, <=, >=, !=, ==, ===, !==
+    -->
+    <h2>조건문  (if)</h2>
+    <pre>
+        if(조건){
+            참일 때 할일;
+        } else {
+            거짓일 때 할일;
+        }
+        <br>
+        컴퓨터에서 0,1의 의미
+        0 : 거짓 false
+        1 : 참 true
+    </pre>
+    <script>
+        var a = 10;
+        var b = 20;
+        //if(0){document.write('a가 b보다 작다')} // 아무것도 안나옴. 
+        //if(1){document.write('a가 b보다 작다')} // 나옴.
+        if(a>b){
+            document.write('a가 b보다 크다');
+        }else if(a == b){
+            //위 조건이 거짓이며, 해당 조건이 참일때 실행
+            document.write('a가 b와 같다');
+        }else {
+            //위 if의조건이 참이 아닐때 실행.
+            document.write('a가 b보다 작다');
+        }
+    </script>
+    <hr>
+    <h2>비교연산자</h2>
+    <pre>
+        != 같지 않다면
+        == 같다면
+        === 타입까지 같다면
+        !== 값은 같은데, 타입이 다르다면
+    </pre>
+    <script>
+        var x = '10';
+        var y = 10;
+        if(x == y){
+            //같이 같은지만 묻는 조건문....
+            if(x===y){
+                //값과 타입이 같은지 묻는 조건문...
+                document.write('x와 y는 값이 같고, 타입도 일치');
+            }else{
+                document.write('x와 y는 값이 같고, 타입은 불일치');
+            }
+        }
+        console.log(typeof(x),typeof(y)); //string, number
+    </script>
+    <hr>
+    <!--  -->
+    <h2>중첩 조건문</h2>
+    <pre>
+        if(){
+            if(){
+            }
+        }
+    </pre>
+    <script>
+        var a = 10;
+        var b = 20;
+
+        if(a != b){
+            // != 같지 않다..
+            // 같지 않다면(크다/작다) 조건 추가..
+            if(a>b){
+                document.write('a는 b보다 크다')
+            }else{
+                document.write('a는 b보다 작다')
+            }
+        }else{
+            document.write('a와 b는 같다.')
+        }
+    </script>
+    <hr>
+    <h2>축약 조건문</h2>
+    <pre>
+        1. 중괄호 삭제 가능
+        2. if삭제후 ? 삽입. (참과 거짓은 세미콜론으로 구분.)
+    </pre>
+    <script>
+         var a = 10;
+         var b = 20;
+        /*
+        if(a>b){
+            document.write('a가 b보다 크다');
+        }else{
+            document.write('a가 b와 같거나 작다');
+        }
+        
+        //중괄호 삭제 버전..
+        if(a>b)
+            document.write('a가 b보다 크다');
+        else
+            document.write('a가 b와 같거나 작다');
+        */
+
+        (a>b)?
+            document.write('a가 b보다 크다'):
+            document.write('a가 b와 같거나 작다');
+    </script>
+    <hr>
+    <h2>논리 연산자</h2>
+    <pre>
+        A && B 모두 참이면 참 반환
+        A || B 하나라도 참이면 참 반환
+    </pre>
+    <script>
+        var a = 10;
+        var b = 20;
+        var c = 30;
+
+        if(a<b && b>c){
+            //&& 둘다 참일때 실행.
+            document.write('a가 b보다 작고, b는 c보다 작다.(모두 참!)')
+        }
+        document.write('<hr>');
+        if(a<b || b>c){
+            //|| 하나만 참일때 실행.
+            document.write('a가 b보다 작거나, b는 c보다 작다.(하나만 참!)')
+        }
+    </script>
+    <hr>
+    <h2>switch</h2>
+    <pre>
+        조건에 매칭되는 케이스가 있다면, 해당 블록 코드 실행.
+
+        switch(조건){
+            case a:
+                //조건의 결과가 a일때 할 일;
+                break;
+            case b:
+                //조건의 결과가 b일때 할 일;
+                break;
+        }
+    </pre>
+    <script>
+        //var number = prompt('숫자를 입력해주세요.',0);
+        var number = 8;
+        
+        switch(number%2){
+            case 0:
+                alert('짝수');
+                break;
+            case 1:
+                alert('홀수');
+                break;
+            default:
+                alert('숫자가 아니다');
+        }
+    </script>
+</body>
+</html>

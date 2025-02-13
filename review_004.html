@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4차시 복습</title>
+</head>
+<body>
+    <!-- 4차시 조건문 (복습) + 식별자 만들기 dom, bom-->
+     <div class="practice">
+        <div class="box box1">연습1</div>
+        <div class="box box2">연습2</div>
+        <div class="box box3">연습3</div>
+        <div class="box box4">연습4</div>
+     </div>
+     <script>
+        //연습2를 식별하고, 연습2가 선택된 상황이 참이라는 가정하에,
+        // '연습(이)가 선택되었습니다.'라는 경고창 뜨게 하기.
+
+        let practice = document.getElementsByClassName("box2");
+        console.log(practice);//연습2박스
+
+        practice = 1;//연습2가 1이라는 값을 가진다.
+
+        if(practice == 1){
+            //연습2가 1과 같다.(참)
+            alert('연습(이)가 선택되었습니다.');
+        }else{
+            document.write('준비 중입니다.');
+        }
+
+     </script>
+    <p id="intro">DOM</p>
+    <p id="demo"></p>
+    <script>
+        var myElement = document.getElementById("intro"); //dom
+
+        document.getElementById("demo").innerHTML =		
+            "문서 삽입! " + myElement.innerHTML; //문서삽입DOM
+    </script>
+    <div class="test">
+        <div class="header">
+            <ul id="gnb" class="gnb_main">
+                <li><a href="#">menu1</a></li>
+                <li><a href="#">menu2</a></li>
+                <li><a href="#">menu3</a></li>
+                <li><a href="#">menu4</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        /* 
+            // dom 선택 방법1 : getElementBy... 사용법
+
+            let tag01 = document.getElementsByTagName("ul");
+            console.log(tag01);
+            let tag02 = document.getElementById("gnb");
+            console.log(tag02);
+            let ul = document.getElementsByClassName("gnb_main");
+            console.log(ul);
+        */
+       //dom 선택 방법2 : querySelector... 사용법
+       let ul = document.querySelector("#gnb");
+       console.log(ul);
+
+       // index 가 있는 dom 선택하기..
+       let li = document.querySelectorAll("li");
+       console.log(li);
+       
+       li[0].style.backgroundColor = 'red';
+
+       //가족관계선택 하기.
+       //부모선택하기
+       li[0].parentNode.style.backgroundColor = 'blue';
+       li[0].parentElement.style.backgroundColor = 'lime';
+       //자식선택하기
+       li[0].firstChild.style.backgroundColor = 'yellow';
+       li[3].lastChild.style.backgroundColor = 'yellow';
+    </script>
+</body>
+</html>
